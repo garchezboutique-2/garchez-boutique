@@ -1,14 +1,14 @@
-import { persist } from '@nanostores/persistent';
+import { persistentAtom } from '@nanostores/persistent';
 import { atom } from 'nanostores';
 
 // Almacenamiento persistente para el carrito de compras
-export const cart = persist(atom([]), { key: 'cart' });
+export const cart = persistentAtom([]); 
 
-export const addToCart = (item) => {
+export const addToCart = (item: any) => {
   cart.set([...cart.get(), item]);
 };
 
-export const removeFromCart = (id) => {
+export const removeFromCart = (id: string) => {
   cart.set(cart.get().filter(item => item.id !== id));
 };
 
