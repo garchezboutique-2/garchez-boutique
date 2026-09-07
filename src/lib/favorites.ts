@@ -1,13 +1,29 @@
 import { persistentAtom } from '@nanostores/persistent';
-import { atom } from 'nanostores';
 
-// Almacenamiento persistente para productos favoritos
-export const favorites = persistentAtom([]);
-
-export const addToFavorites = (item: any) => {
-  favorites.set([...favorites.get(), item]);
+export type FavoriteItem = {
+  id: string;
+  title: string;
+  price: number;
+  image?: string;
 };
 
-export const removeFromFavorites = (id: string) => {
-  favorites.set(favorites.get().filter(item => item.id !== id));
+export const favorites = persistentAtom<FavoriteItem[]>(
+  'garchez-favorites',
+  []
+);
+
+export const addToFavorites = (item: FavoriteItem): void => {
+  if (!favorites.get().some((product) => product.id === item.id)) {
+    favorites.set([...favorites.get(), item]);
+  }
+};
+
+export const removeFromFavorites = (id: string): void => {
+  favorites.set(
+    favorites.get().filter((item) => item.id !== id)
+  );
+};
+
+export const isFavorite = (id: string): boolean => {
+  return favorites.get().some((item) => item.id === id);
 };
