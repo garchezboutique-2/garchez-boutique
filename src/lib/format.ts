@@ -1,5 +1,5 @@
 // Funciones de formato para mostrar precios y otros datos
-export const formatPrice = (price) => {
+export const formatPrice = (price: number): string => {
   return new Intl.NumberFormat('es-NI', {
     style: 'currency',
     currency: 'NIO'
