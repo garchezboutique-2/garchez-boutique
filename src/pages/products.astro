@@ -1,0 +1,44 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+  <main class="products-page">
+    <h1>Productos</h1>
+
+    <p class="intro">
+      Descubre nuestra colección de GarChéz Boutique.
+    </p>
+
+    <div class="empty-state">
+      <p>Próximamente encontrarás aquí nuestros productos.</p>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .products-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .intro {
+    text-align: center;
+    color: #666;
+    margin-bottom: 2rem;
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 3rem 1rem;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    background: #fafafa;
+  }
+</style>
