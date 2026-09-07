@@ -1,0 +1,15 @@
+---
+const { products } = Astro.props;
+---
+
+<ul>
+  {products.map((product) => (
+    <li>
+      <a href={`/product/${product.slug}`}>
+        <img src={product.image} alt={product.title} />
+        <h3>{product.title}</h3>
+        <span>{formatPrice(product.price)}</span>
+      </a>
+    </li>
+  ))}
+</ul>
