@@ -1,0 +1,17 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCategory } from '../config/categories';
+import { collections } from '../content.config.js';
+import { z, defineCollection } from 'astro:content';
+
+const { slug } = Astro.params;
+const product = await collections.products.get(slug);
+const category = getCategory(product.category);
+---
+
+<Layout>
+  <h1>{product.title}</h1>
+  <p>{product.description}</p>
+  <span>{formatPrice(product.price)}</span>
+  <img src={product.image} alt={product.title} />
+</Layout>
