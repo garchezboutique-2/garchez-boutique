@@ -1,0 +1,60 @@
+backend:
+  name: github
+  repo: garchezboutique-2/garchez-boutique
+  branch: main
+
+media_folder: public/uploads
+public_folder: /uploads
+
+collections:
+  - name: products
+    label: Productos
+    folder: src/content/products
+    create: true
+    format: json
+    slug: "{{slug}}"
+
+    fields:
+      - label: Nombre del producto
+        name: title
+        widget: string
+
+      - label: Descripción
+        name: description
+        widget: text
+
+      - label: Precio
+        name: price
+        widget: number
+        value_type: float
+        min: 0
+
+      - label: Categoría
+        name: category
+        widget: select
+        options:
+          - label: Ropa de Dama
+            value: ropa-dama
+          - label: Ropa de Caballero
+            value: ropa-caballero
+          - label: Calzado
+            value: calzado
+          - label: Bolsos
+            value: bolsos
+          - label: Accesorios
+            value: accesorios
+          - label: Joyería
+            value: joyeria
+          - label: Ofertas
+            value: ofertas
+
+      - label: Imagen
+        name: image
+        widget: image
+        required: false
+
+      - label: Stock
+        name: stock
+        widget: number
+        value_type: int
+        min: 0
