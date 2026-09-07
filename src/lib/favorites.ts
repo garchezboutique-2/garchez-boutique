@@ -1,13 +1,13 @@
-import { persist } from '@nanostores/persistent';
+import { persistentAtom } from '@nanostores/persistent';
 import { atom } from 'nanostores';
 
 // Almacenamiento persistente para productos favoritos
-export const favorites = persist(atom([]), { key: 'favorites' });
+export const favorites = persistentAtom([]);
 
-export const addToFavorites = (item) => {
+export const addToFavorites = (item: any) => {
   favorites.set([...favorites.get(), item]);
 };
 
-export const removeFromFavorites = (id) => {
+export const removeFromFavorites = (id: string) => {
   favorites.set(favorites.get().filter(item => item.id !== id));
 };
