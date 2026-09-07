@@ -1,0 +1,86 @@
+---
+---
+
+<section class="cart">
+  <h2>Carrito de compras</h2>
+
+  <p id="cart-empty">
+    Tu carrito está vacío.
+  </p>
+
+  <div id="cart-items"></div>
+
+  <div class="cart-total">
+    <strong>Total:</strong>
+    <span id="cart-total">C$0.00</span>
+  </div>
+</section>
+
+<script>
+  const cartItems = document.getElementById('cart-items');
+  const cartEmpty = document.getElementById('cart-empty');
+  const cartTotal = document.getElementById('cart-total');
+
+  function renderCart() {
+    if (!cartItems || !cartEmpty || !cartTotal) return;
+
+    const stored = localStorage.getItem('garchez-cart');
+    const items = stored ? JSON.parse(stored) : [];
+
+    if (!items.length) {
+      cartEmpty.style.display = 'block';
+      cartItems.innerHTML = '';
+      cartTotal.textContent = 'C$0.00';
+      return;
+    }
+
+    cartEmpty.style.display = 'none';
+
+    let total = 0;
+
+    cartItems.innerHTML = items
+      .map((item: { title?: string; price?: number }) => {
+        const price = Number(item.price) || 0;
+        total += price;
+
+        return `
+          <div class="cart-item">
+            <span>${item.title ?? 'Producto'}</span>
+            <strong>C$${price.toFixed(2)}</strong>
+          </div>
+        `;
+      })
+      .join('');
+
+    cartTotal.textContent = `C$${total.toFixed(2)}`;
+  }
+
+  renderCart();
+</script>
+
+<style>
+  .cart {
+    padding: 1.5rem;
+    border-radius: 12px;
+    background: #f8f8f8;
+  }
+
+  .cart h2 {
+    margin-top: 0;
+  }
+
+  .cart-item {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .cart-total {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    font-size: 1.1rem;
+  }
+</style>
