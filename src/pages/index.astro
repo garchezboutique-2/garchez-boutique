@@ -1,0 +1,58 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+  <main class="home">
+    <section class="hero">
+      <h1>GarChéz Boutique</h1>
+      <p>Tu estilo, nuestra pasión ❤️</p>
+      <a href="/products" class="button">Ver productos</a>
+    </section>
+
+    <section class="welcome">
+      <h2>Bienvenida a nuestra boutique</h2>
+      <p>
+        Descubre ropa, calzado, bolsos, accesorios y mucho más.
+      </p>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .home {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+
+  .hero {
+    text-align: center;
+    padding: 5rem 1rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.2rem, 6vw, 4rem);
+    margin-bottom: 0.75rem;
+  }
+
+  .hero p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+  }
+
+  .button {
+    display: inline-block;
+    padding: 0.9rem 1.5rem;
+    border-radius: 8px;
+    background: #222;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .welcome {
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+</style>
