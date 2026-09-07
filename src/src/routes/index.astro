@@ -1,0 +1,12 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ProductList from '../components/ProductList.astro';
+import { catalog } from '../lib/catalog';
+
+const products = await catalog.get();
+---
+
+<Layout>
+  <h1>Bienvenido a GarChéz Boutique</h1>
+  <ProductList products={products} />
+</Layout>
