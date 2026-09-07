@@ -1,0 +1,70 @@
+---
+import { categories } from '../config/categories';
+---
+
+<form class="product-form">
+  <label>
+    Título
+    <input type="text" name="title" required />
+  </label>
+
+  <label>
+    Precio
+    <input type="number" name="price" min="0" step="0.01" required />
+  </label>
+
+  <label>
+    Descripción
+    <textarea name="description" rows="4" required></textarea>
+  </label>
+
+  <label>
+    Categoría
+    <select name="category" required>
+      <option value="">Seleccione una categoría</option>
+
+      {categories.map((category) => (
+        <option value={category.slug}>
+          {category.name}
+        </option>
+      ))}
+    </select>
+  </label>
+
+  <button type="submit">
+    Agregar producto
+  </button>
+</form>
+
+<style>
+  .product-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 600px;
+  }
+
+  label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    font-weight: 600;
+  }
+
+  input,
+  textarea,
+  select {
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font: inherit;
+  }
+
+  button {
+    padding: 0.8rem 1rem;
+    border: 0;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+  }
+</style>
