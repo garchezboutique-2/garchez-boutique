@@ -1,5 +1,17 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import ProductList from '../components/ProductList.astro';
+import { getCollection } from 'astro:content';
+
+const products = await getCollection('products');
+
+const productList = products.map((product) => ({
+  id: product.id,
+  slug: product.id,
+  title: product.data.title,
+  price: product.data.price,
+  image: product.data.image,
+}));
 ---
 
 <Layout>
@@ -10,9 +22,7 @@ import Layout from '../layouts/Layout.astro';
       Descubre nuestra colección de GarChéz Boutique.
     </p>
 
-    <div class="empty-state">
-      <p>Próximamente encontrarás aquí nuestros productos.</p>
-    </div>
+    <ProductList products={productList} />
   </main>
 </Layout>
 
@@ -32,13 +42,5 @@ import Layout from '../layouts/Layout.astro';
     text-align: center;
     color: #666;
     margin-bottom: 2rem;
-  }
-
-  .empty-state {
-    text-align: center;
-    padding: 3rem 1rem;
-    border: 1px solid #eee;
-    border-radius: 12px;
-    background: #fafafa;
   }
 </style>
