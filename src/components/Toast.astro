@@ -1,0 +1,46 @@
+---
+---
+
+<div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+<script>
+  const container = document.getElementById('toast-container');
+
+  window.addEventListener('garchez:toast', (event) => {
+    const customEvent = event as CustomEvent<{ message: string }>;
+
+    if (!container || !customEvent.detail?.message) return;
+
+    const toast = document.createElement('div');
+    toast.className = 'toast';
+    toast.textContent = customEvent.detail.message;
+
+    container.appendChild(toast);
+
+    setTimeout(() => {
+      toast.remove();
+    }, 3000);
+  });
+</script>
+
+<style>
+  .toast-container {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    max-width: 320px;
+  }
+
+  .toast {
+    background: #222;
+    color: #fff;
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    font-size: 0.95rem;
+  }
+</style>
