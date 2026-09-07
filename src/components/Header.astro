@@ -1,0 +1,72 @@
+---
+import { site } from '../config/site';
+---
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="logo">
+      {site.title}
+    </a>
+
+    <nav aria-label="Navegación principal">
+      <a href="/">Inicio</a>
+      <a href="/products">Productos</a>
+    </nav>
+
+    <div class="header-actions">
+      <a href="/products">🛍️ Comprar</a>
+    </div>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    width: 100%;
+    border-bottom: 1px solid #eee;
+    background: #fff;
+  }
+
+  .header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .logo {
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: #111;
+  }
+
+  nav {
+    display: flex;
+    gap: 1rem;
+  }
+
+  nav a,
+  .header-actions a {
+    text-decoration: none;
+    color: #222;
+  }
+
+  .header-actions a {
+    font-weight: 600;
+  }
+
+  @media (max-width: 700px) {
+    .header-inner {
+      flex-wrap: wrap;
+    }
+
+    nav {
+      order: 3;
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>
