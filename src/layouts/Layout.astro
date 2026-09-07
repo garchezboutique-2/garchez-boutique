@@ -1,0 +1,28 @@
+---
+const { children } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GarChéz Boutique</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <header>
+        <h1>GarChéz Boutique</h1>
+        <nav>
+            <a href="/">Inicio</a>
+            <a href="/products">Productos</a>
+        </nav>
+    </header>
+    <main>
+        {children}
+    </main>
+    <footer>
+        <p>&copy; 2023 GarChéz Boutique</p>
+    </footer>
+</body>
+</html>
