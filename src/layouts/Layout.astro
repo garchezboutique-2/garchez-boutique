@@ -1,7 +1,5 @@
 ---
 import '../styles/global.css';
-
-const { children } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -9,10 +7,12 @@ const { children } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <meta
       name="description"
       content="GarChéz Boutique — La mejor boutique en línea para Damas y Caballeros."
     />
+
     <title>GarChéz Boutique</title>
   </head>
 
@@ -30,7 +30,7 @@ const { children } = Astro.props;
     </header>
 
     <main>
-      {children}
+      <slot />
     </main>
 
     <footer class="site-footer">
