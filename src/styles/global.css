@@ -9,6 +9,7 @@
   --color-cream: #FBF8F4;
   --color-rose: #C98B8B;
   --color-sale: #C0392B;
+
   --font-display: "Playfair Display", Georgia, serif;
   --font-body: "Inter", system-ui, -apple-system, sans-serif;
 }
@@ -33,6 +34,7 @@ h3,
 }
 
 /* Utilidades reutilizables */
+
 @utility btn-primary {
   @apply inline-flex items-center justify-center gap-2 rounded-full bg-ink px-6 py-3
     text-sm font-semibold text-cream transition active:scale-95 hover:bg-charcoal
@@ -60,6 +62,7 @@ h3,
 }
 
 /* Ocultar scrollbar en carruseles móviles */
+
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
@@ -68,6 +71,8 @@ h3,
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+/* Accesibilidad: reducir animaciones si el usuario lo solicita */
 
 @media (prefers-reduced-motion: reduce) {
   * {
