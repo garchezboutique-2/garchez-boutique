@@ -13,39 +13,67 @@
   --font-body: "Inter", system-ui, -apple-system, sans-serif;
 }
 
-html { scroll-behavior: smooth; -webkit-tap-highlight-color: transparent; }
+html {
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+}
+
 body {
   background: var(--color-cream);
   color: var(--color-ink);
   font-family: var(--font-body);
   overflow-x: hidden;
 }
-h1,h2,h3,.font-display { font-family: var(--font-display); }
+
+h1,
+h2,
+h3,
+.font-display {
+  font-family: var(--font-display);
+}
 
 /* Utilidades reutilizables */
 @utility btn-primary {
   @apply inline-flex items-center justify-center gap-2 rounded-full bg-ink px-6 py-3
-         text-sm font-semibold text-cream transition active:scale-95 hover:bg-charcoal
-         min-h-[48px];
+    text-sm font-semibold text-cream transition active:scale-95 hover:bg-charcoal
+    min-h-[48px];
 }
+
 @utility btn-gold {
   @apply inline-flex items-center justify-center gap-2 rounded-full bg-gold px-6 py-3
-         text-sm font-bold text-ink transition active:scale-95 hover:brightness-105
-         min-h-[48px];
+    text-sm font-bold text-ink transition active:scale-95 hover:brightness-105
+    min-h-[48px];
 }
+
 @utility btn-ghost {
   @apply inline-flex items-center justify-center gap-2 rounded-full border border-ink/15
-         bg-white px-5 py-3 text-sm font-medium transition active:scale-95
-         hover:border-ink/40 min-h-[48px];
+    bg-white px-5 py-3 text-sm font-medium transition active:scale-95
+    hover:border-ink/40 min-h-[48px];
 }
+
 @utility card {
   @apply rounded-2xl bg-white shadow-[0_2px_14px_rgba(18,16,14,0.06)] overflow-hidden;
 }
-@utility container-x { @apply mx-auto w-full max-w-[1280px] px-4 sm:px-6 lg:px-8; }
+
+@utility container-x {
+  @apply mx-auto w-full max-w-[1280px] px-4 sm:px-6 lg:px-8;
+}
 
 /* Ocultar scrollbar en carruseles móviles */
-.no-scrollbar::-webkit-scrollbar { display: none; }
-.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
 
 @media (prefers-reduced-motion: reduce) {
-  * { animation:
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
