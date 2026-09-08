@@ -1,28 +1,107 @@
 ---
+import '../styles/global.css';
+
 const { children } = Astro.props;
 ---
 
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="GarChéz Boutique — La mejor boutique en línea para Damas y Caballeros."
+    />
     <title>GarChéz Boutique</title>
-    <link rel="stylesheet" href="/styles.css">
-</head>
-<body>
-    <header>
-        <h1>GarChéz Boutique</h1>
-        <nav>
-            <a href="/">Inicio</a>
-            <a href="/products">Productos</a>
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a href="/" class="logo">GarChéz Boutique</a>
+
+        <nav class="navigation" aria-label="Navegación principal">
+          <a href="/">Inicio</a>
+          <a href="/products">Productos</a>
+          <a href="/admin/">Administrar</a>
         </nav>
+      </div>
     </header>
+
     <main>
-        {children}
+      {children}
     </main>
-    <footer>
-        <p>&copy; 2023 GarChéz Boutique</p>
+
+    <footer class="site-footer">
+      <p>© {new Date().getFullYear()} GarChéz Boutique</p>
+      <p>Tu estilo, nuestra pasión ❤️</p>
     </footer>
-</body>
+  </body>
 </html>
+
+<style>
+  .site-header {
+    border-bottom: 1px solid #eee;
+    background: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+
+  .header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .logo {
+    color: #111;
+    text-decoration: none;
+    font-family: Georgia, serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  .navigation {
+    display: flex;
+    gap: 1.25rem;
+  }
+
+  .navigation a {
+    color: #333;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .navigation a:hover {
+    color: #d66b91;
+  }
+
+  .site-footer {
+    margin-top: 4rem;
+    padding: 2rem 1rem;
+    text-align: center;
+    border-top: 1px solid #eee;
+    color: #666;
+  }
+
+  .site-footer p {
+    margin: 0.3rem 0;
+  }
+
+  @media (max-width: 700px) {
+    .header-inner {
+      flex-direction: column;
+    }
+
+    .navigation {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+</style>
